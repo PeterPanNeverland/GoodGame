@@ -1,0 +1,34 @@
+﻿<Window x:Class="SnakeTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600">
+    <Grid Background="Gray" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.014"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Canvas Name="paintCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" KeyDown="paintCanvas_KeyDown">
+            <Canvas.Background>
+                <ImageBrush ImageSource="C:\Users\student\Documents\Working Game Project\Game Main\Game Main\Images\bkg.png">
+
+                </ImageBrush>
+            </Canvas.Background>
+            <Label Content="Score:" Canvas.Right="216" Canvas.Top="0" Height="25" Canvas.Left="0"/>
+            <Label x:Name="score_label" Canvas.Right="205" Canvas.Top="0" Height="25" Canvas.Left="47" Width="41"/>
+
+            <Label Content="Level:" Canvas.Right="16" Canvas.Top="0" Height="25" Canvas.Left="424"/>
+            <Label x:Name="level_label" Canvas.Right="5" Canvas.Top="0" Height="25" Canvas.Left="468" Width="44"/>
+            <Image x:Name="image" Loaded="OnLoad" Source="C:\Users\student\Documents\Working Game Project\Game Main\Game Main\Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp" Canvas.Left="10" Canvas.Top="768"/>
+        </Canvas>
+    </Grid>
+</Window>
