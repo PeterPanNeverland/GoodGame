@@ -29,8 +29,9 @@ TODO:
 
 
 Roshan == Sept 13
-Create new reposotory
+
 ToDO: 
+- Create new reposotory with one project file.
 - Create rough layout for the game.
 - create boundries and walls.
 - create collision detection when charachter intersects with enemy.
