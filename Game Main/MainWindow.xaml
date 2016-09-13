@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Canvas Name="paintCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" KeyDown="paintCanvas_KeyDown">
             <Canvas.Background>
-                <ImageBrush ImageSource="C:\Users\student\Documents\Working Game Project\Game Main\Game Main\Images\bkg.png">
+                <ImageBrush ImageSource="Images\bkg.png">
 
                 </ImageBrush>
             </Canvas.Background>
@@ -28,7 +28,88 @@
 
             <Label Content="Level:" Canvas.Right="16" Canvas.Top="0" Height="25" Canvas.Left="424"/>
             <Label x:Name="level_label" Canvas.Right="5" Canvas.Top="0" Height="25" Canvas.Left="468" Width="44"/>
-            <Image x:Name="image" Loaded="OnLoad" Source="C:\Users\student\Documents\Working Game Project\Game Main\Game Main\Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp" Canvas.Left="10" Canvas.Top="768"/>
+            <Image x:Name="Marty" Loaded="OnLoad" Source="Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp" Canvas.Left="120" Canvas.Top="752"/>
+            <Image x:Name="Wall" Loaded="OnLoad" Source="Images\Bridge.png" Height="55" Canvas.Left="-366" Canvas.Top="434" Width="777" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.697"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images\Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="Wall_Copy" Loaded="OnLoad" Source="Images/Bridge.png" Height="55" Canvas.Left="1175" Canvas.Top="435" Width="777" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.697"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="Wall_Copy1" Loaded="OnLoad" Source="Images/Bridge.png" Height="55" Canvas.Left="8" Canvas.Top="64" Width="1583" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.209"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="Wall_Copy2" Loaded="OnLoad" Source="Images/Bridge.png" Height="55" Canvas.Left="8" Canvas.Top="815" Width="1580" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-179.808"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="Wall_Copy3" Loaded="OnLoad" Source="Images/Bridge.png" Height="55" Canvas.Left="-43" Canvas.Top="533" Width="590" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.697"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="Wall_Copy4" Loaded="OnLoad" Source="Images/Bridge.png" Height="55" Canvas.Left="233" Canvas.Top="249" Width="1358" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.209"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Images/Bridge.png" TileMode="Tile" Stretch="Fill"/>
+                </Image.OpacityMask>
+            </Image>
+
+
+
         </Canvas>
     </Grid>
 </Window>

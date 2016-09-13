@@ -32,8 +32,8 @@ Roshan == Sept 13
 
 ToDO: 
 - Create new reposotory with one project file.
+- Create back and forth movement for obsticles.
 - Create rough layout for the game.
-- create boundries and walls.
 - create collision detection when charachter intersects with enemy.
 
 

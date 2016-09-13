@@ -73,25 +73,25 @@ namespace SnakeTest
 
             this.Dispatcher.Invoke((Action)(() =>
             {
-                double top = Canvas.GetTop(this.image);
-                double left = Canvas.GetLeft(this.image);
+                double top = Canvas.GetTop(this.Marty);
+                double left = Canvas.GetLeft(this.Marty);
 
                 switch (direction)
                 {
                     case 0:
-                        Canvas.SetTop(image, top - 1 * speed_multiplier);
+                        Canvas.SetTop(Marty, top - 1 * speed_multiplier);
                         break;
                     case 1:
-                        Canvas.SetTop(image, top + 1 * speed_multiplier);
+                        Canvas.SetTop(Marty, top + 1 * speed_multiplier);
                         break;
                     case 2:
-                        Canvas.SetLeft(image, left + 1 * speed_multiplier);
+                        Canvas.SetLeft(Marty, left + 1 * speed_multiplier);
                         break;
                     case 3:
-                        Canvas.SetLeft(image, left - 1 * speed_multiplier);
+                        Canvas.SetLeft(Marty, left - 1 * speed_multiplier);
                         break;
                     default:
-                        Canvas.SetTop(image, top + 0 * speed_multiplier);
+                        Canvas.SetTop(Marty, top + 0 * speed_multiplier);
                         break;
                 }
 
@@ -162,7 +162,11 @@ namespace SnakeTest
                     direction = 1;
                     break;
             }
-            
+            if (Marty.Bounds.IntersectsWith(Wall.Bounds))
+            {
+                MessageBox.Show("YOU LOST!!!");
+            }
+
         }
 
 
@@ -172,12 +176,12 @@ namespace SnakeTest
         }
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-            Keyboard.Focus(image);
+            Keyboard.Focus(Marty);
         }
         public void MoveCharacter(int x, int y)
         {
-            Canvas.SetTop(image, x);
-            Canvas.SetLeft(image, y);
+            Canvas.SetTop(Marty, x);
+            Canvas.SetLeft(Marty, y);
         }
 
         private void paintCanvas_KeyDown(object sender, KeyEventArgs e)
@@ -189,5 +193,7 @@ namespace SnakeTest
         {
 
         }
+        
+        }
+
     }
-}
