@@ -1,0 +1,39 @@
+Alex == 6 sept 
+TODO
+Create database table
+Create XAML
+
+Alex == 7 sept
+Database was done.
+Project preview was done.
+TODO: Link database images with code
+Upload images to database
+
+Alex == 8 sept
+Figured out how to populate database with images
+TODO: Level design, character creation, scripting,
+ AI, obstacle creation, make database for characters and background
+
+Alex == 9sept
+Figured out Canvas and player movement
+TODO: Position objects, key strokes movements, focus on canvas
+PRE-WEEKEND 
+
+
+
+Roshan == sept 12
+TODO:
+-Firgure out character movement with arrow keys.
+-make character image display.
+ 
+
+
+Roshan == Sept 13
+Create new reposotory
+ToDO: 
+- Create rough layout for the game.
+- create boundries and walls.
+- create collision detection when charachter intersects with enemy.
+
+
+
