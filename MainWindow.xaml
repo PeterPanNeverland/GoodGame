@@ -19,7 +19,7 @@
             <Label Content="Level:" Canvas.Right="16" Canvas.Top="0" Height="25" Canvas.Left="424"/>
             <Label x:Name="level_label" Canvas.Right="5" Canvas.Top="0" Height="25" Canvas.Left="468" Width="44"/>
             <Image x:Name="Player" Loaded="OnLoad" Source="C:\Users\student\Documents\Working Game Project\Game Main\Game Main\Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp"/>
-            <Image x:Name="DonkeyKong" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\biff right.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image x:Name="DonkeyKong" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\biff right.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
         </Canvas>
         <Image x:Name="image" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\Bridge.png"  HorizontalAlignment="Left" Height="100" Margin="10,760,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="image_Copy" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\Bridge.png" HorizontalAlignment="Left" Height="100" Margin="110,760,0,0" VerticalAlignment="Top" Width="100"/>
@@ -37,6 +37,7 @@
         <Image x:Name="image_Copy12" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\Bridge.png" HorizontalAlignment="Left" Height="100" Margin="1310,760,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="image_Copy13" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\Bridge.png" HorizontalAlignment="Left" Height="100" Margin="1410,760,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="image_Copy14" Source="C:\Users\student\Documents\GoodGame\Game Main\Images\Bridge.png" HorizontalAlignment="Left" Height="100" Margin="1510,760,-18,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="image_Copy15" Source="Images/Bridge.png"  HorizontalAlignment="Left" Height="100" Margin="-90,760,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>

@@ -1,4 +1,3 @@
-
 Alex == 6 sept 
 TODO
 Create database table
@@ -44,10 +43,4 @@ TODO: Work on game physics and collision. Ennemy movement too.
 
 Alex==14sept
 Collision is starting to work. Ennemy movement too.
-Work on collision and location of ennemies and character. Work on game physics. 
-
-Roshan == Sept 14 
-
-ToDO:
-- code back and forth movmements.
-
+Work on collision and location of ennemies and character. Work on game physics.

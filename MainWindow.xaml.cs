@@ -170,7 +170,7 @@ namespace SnakeTest
 
                 Canvas.SetLeft(Player, GameStatus.Player.posX);
                 
-                Canvas.SetTop(Player, GameStatus.Player.posY - 6*GameStatus.Player.JumpHeight[GameStatus.Player.JumpProgress]);
+                Canvas.SetTop(Player, GameStatus.Player.posY - 15*GameStatus.Player.JumpHeight[GameStatus.Player.JumpProgress]);
                 if (GameStatus.Player.JumpProgress > 0)
                 {
                     GameStatus.Player.JumpProgress++;
