@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:SnakeTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1600">
+
     <Grid Background="Gray" RenderTransformOrigin="0.5,0.5">
+
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -17,7 +19,21 @@
         </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
+
         <Canvas Name="paintCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" KeyDown="paintCanvas_KeyDown">
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard >
+                        
+                        <Storyboard Storyboard.TargetName="Barrel" Storyboard.TargetProperty="(Canvas.Left)">
+                            
+                            <DoubleAnimation From="0" To="220" Duration="0:0:1" AccelerationRatio=".2" DecelerationRatio=".8" RepeatBehavior="23:59:59" AutoReverse="True"/>
+                            
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
+
             <Canvas.Background>
                 <ImageBrush ImageSource="Images\bkg.png">
 
@@ -28,8 +44,22 @@
 
             <Label Content="Level:" Canvas.Right="16" Canvas.Top="0" Height="25" Canvas.Left="424"/>
             <Label x:Name="level_label" Canvas.Right="5" Canvas.Top="0" Height="25" Canvas.Left="468" Width="44"/>
-            <Image x:Name="Marty" Loaded="OnLoad" Source="Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp" Canvas.Left="120" Canvas.Top="752"/>
+            <Image x:Name="Player" Loaded="OnLoad" Source="Images\MartyRight.png" KeyDown="image_KeyDown" KeyUp="image_KeyUp" />
+            <Image x:Name="Barrel" Loaded="OnLoad" Source="Images\Hit Right.png" Canvas.Left="122" Canvas.Top="162" Stretch="None" />
+            <Image x:Name="Hit2" Loaded="OnLoad" Source="Images\Hit Right.png" Canvas.Left="354" Canvas.Top="75" RenderTransformOrigin="0.5,0.498">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90.812"/>
+                        <TranslateTransform X="0.099" Y="0.099"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
             <Image x:Name="Wall" Loaded="OnLoad" Source="Images\Bridge.png" Height="55" Canvas.Left="-366" Canvas.Top="434" Width="777" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+
+
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

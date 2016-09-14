@@ -13,14 +13,79 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace SnakeTest
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    public enum Direction { Stop, Up, Down, Left, Right }
+
+    class Player
+    {
+        public double posY;
+        public double posX;
+        public int sizeX, sizeY;
+        public int JumpProgress;// 0 - no jump, 1-9
+        public Image image;
+        public Direction direction;
+        private int v1;
+        private int v2;
+        private int v3;
+        private int v4;
+
+        
+
+        public void Animate()
+        {
+        }
+
+        
+    }
+    class Barrel
+    {
+        public int posY;
+        public int posX;
+        public int sizeX, sizeY;
+        public Image image;
+        public Direction direction;
+        private int v1;
+        private int v2;
+        private int v3;
+        private int v4;
+
+        public Barrel(int v1, int v2, int v3, int v4)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
+        }
+
+        public Barrel()
+        {
+        }
+
+        public void Animate()
+        {
+
+        }
+    }
+    class GameStatus
+    {
+        // state of the game
+        public static Player Player;
+        public static Barrel Barrel;
+
+        public int ScorePoints;
+        public string PlayerName;
+    }
     public partial class MainWindow : Window
     {
+        
+
         private Ellipse snake_head { get; set; }
         private Image pepsi { get; set; }
         private Image character { get; set; }
@@ -30,16 +95,53 @@ namespace SnakeTest
         private Random rnd;
 
         private int direction = 5;
-        private int speed_multiplier = 3;
+        private int speed_multiplier = 5;
         private int time_multiplier = 1;
         private int tick_counter = 0;
         private int window_width;
         private int window_height;
 
+        public partial class AnimatingControl : UserControl
+        {
+            public AnimatingControl()
+            {
+                
+                Loaded += AnimatingControl_Loaded;
+            }
+
+            private void AnimatingControl_Loaded(object sender, RoutedEventArgs e)
+            {
+                Storyboard sb = (this.FindResource("sbAnimateImage") as Storyboard);
+                sb.Begin();
+            }
+        }
 
         public MainWindow()
         {
+
             InitializeComponent();
+
+            this.DataContext = this;
+
+            GameStatus.Player = new Player();
+            GameStatus.Player.posX = 50;
+            GameStatus.Player.posY = 700;
+            Canvas.SetTop(this.Player, 700);
+            Canvas.SetLeft(this.Player, 50);
+            Player.Width =100;
+            Player.Height =100;
+
+
+            GameStatus.Barrel = new Barrel();
+            GameStatus.Barrel.posX = 10;
+            GameStatus.Barrel.posY = 500;
+            GameStatus.Barrel.sizeX = 50;
+            GameStatus.Barrel.sizeY = 50;
+            Canvas.SetTop(this.Barrel, 500);
+            Canvas.SetLeft(this.Barrel, 10);
+            Barrel.Width = 47;
+            Barrel.Height = 39;
+
 
             this.DataContext = this;
 
@@ -66,35 +168,81 @@ namespace SnakeTest
         }
 
 
+
+
         private void tick_Elapsed(object sender, ElapsedEventArgs e)
         {
+
+
             this.tick.Stop();
             this.tick.Interval = 100 / this.time_multiplier;
 
+
             this.Dispatcher.Invoke((Action)(() =>
             {
-                double top = Canvas.GetTop(this.Marty);
-                double left = Canvas.GetLeft(this.Marty);
+                double top = Canvas.GetTop(this.Player);
+                double left = Canvas.GetLeft(this.Player);
 
                 switch (direction)
                 {
                     case 0:
-                        Canvas.SetTop(Marty, top - 1 * speed_multiplier);
+                        Canvas.SetTop(Player, top - 1 * speed_multiplier);
+                        GameStatus.Player.posY = top - 1 * speed_multiplier;
                         break;
                     case 1:
-                        Canvas.SetTop(Marty, top + 1 * speed_multiplier);
+                        Canvas.SetTop(Player, top + 1 * speed_multiplier);
+                        GameStatus.Player.posY = top + 1 * speed_multiplier;
                         break;
                     case 2:
-                        Canvas.SetLeft(Marty, left + 1 * speed_multiplier);
+                        Canvas.SetLeft(Player, left + 1 * speed_multiplier);
+                        GameStatus.Player.posX = left + 1 * speed_multiplier;
                         break;
                     case 3:
-                        Canvas.SetLeft(Marty, left - 1 * speed_multiplier);
+                        Canvas.SetLeft(Player, left - 1 * speed_multiplier);
+                        GameStatus.Player.posX = left - 1 * speed_multiplier;
                         break;
                     default:
-                        Canvas.SetTop(Marty, top + 0 * speed_multiplier);
+                        Canvas.SetTop(Player, top + 0 * speed_multiplier);
                         break;
                 }
 
+                //Collision detection
+
+                Rect rect1 = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
+                Rect rect2 = new Rect(Canvas.GetLeft(Barrel), Canvas.GetTop(Barrel), Barrel.Width, Barrel.Height);
+                if (rect1.IntersectsWith(rect2))
+                
+                {
+                
+
+                    MessageBox.Show("YOU LOST");
+                }
+                if (GameStatus.Player.posY == 700)
+                {
+                    direction = 5;
+                }
+
+                bool gameOver;
+                if (GameStatus.Player.posX < 0)
+                {
+                    left = 0;
+                    gameOver = true;
+                }
+                if (GameStatus.Barrel.posY < 0)
+                {
+                    top = 0;
+                    gameOver = true;
+                }
+                if (GameStatus.Player.posX > paintCanvas.Width)
+                {
+                    left = 0;
+                    gameOver = true;
+                }
+                if (GameStatus.Barrel.posY > paintCanvas.Height)
+                {
+                    top = 0;
+                    gameOver = true;
+                }
 
                 this.tick_counter++;
                 /*
@@ -105,6 +253,7 @@ namespace SnakeTest
                 this.tick.Start();
             }));
         }
+        
         private void AteAPepsi()
         {
             //add pts to score
@@ -126,6 +275,7 @@ namespace SnakeTest
             return false;
         }
         */
+      
         public static bool CheckCollision(Image e1, Image e2)
         {
             var r1 = e1.ActualWidth / 2;
@@ -146,28 +296,26 @@ namespace SnakeTest
 
             switch (e.Key)
             {
-                case Key.W:
+                case Key.Up:
                     direction = 0;
                     break;
-                case Key.S:
+                case Key.Down:
                     direction = 1;
                     break;
-                case Key.D:
+                case Key.Right:
                     direction = 2;
                     break;
-                case Key.A:
+                case Key.Left:
                     direction = 3;
                     break;
                 default:
                     direction = 1;
                     break;
             }
-            if (Marty.Bounds.IntersectsWith(Wall.Bounds))
-            {
-                MessageBox.Show("YOU LOST!!!");
-            }
+            
 
         }
+
 
 
         private void image_KeyUp(object sender, KeyEventArgs e)
@@ -176,12 +324,12 @@ namespace SnakeTest
         }
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-            Keyboard.Focus(Marty);
+            Keyboard.Focus(Player);
         }
         public void MoveCharacter(int x, int y)
         {
-            Canvas.SetTop(Marty, x);
-            Canvas.SetLeft(Marty, y);
+            Canvas.SetTop(Player, x);
+            Canvas.SetLeft(Player, y);
         }
 
         private void paintCanvas_KeyDown(object sender, KeyEventArgs e)
@@ -193,6 +341,7 @@ namespace SnakeTest
         {
 
         }
+
         
         }
 

@@ -34,7 +34,15 @@ ToDO:
 - Create new reposotory with one project file.
 - Create back and forth movement for obsticles.
 - Create rough layout for the game.
-- create collision detection when charachter intersects with enemy.
+Done:
+rough layout.
+Back and forth figured out on xaml but must do in code.
+
+Roshan == Sept 14 
+
+ToDO:
+- code back and forth movmements.
+
 
 
 
