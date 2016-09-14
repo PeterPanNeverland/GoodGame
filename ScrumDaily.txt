@@ -1,3 +1,4 @@
+
 Alex == 6 sept 
 TODO
 Create database table
@@ -29,20 +30,24 @@ TODO:
 
 
 Roshan == Sept 13
-
+Create new reposotory
 ToDO: 
-- Create new reposotory with one project file.
-- Create back and forth movement for obsticles.
 - Create rough layout for the game.
-Done:
-rough layout.
-Back and forth figured out on xaml but must do in code.
+- create boundries and walls.
+- create collision detection when charachter intersects with enemy.
+
+
+Alex == 13sept
+Worked at home. Made the character move in the canvas and working on 
+collision and game physics.
+TODO: Work on game physics and collision. Ennemy movement too.
+
+Alex==14sept
+Collision is starting to work. Ennemy movement too.
+Work on collision and location of ennemies and character. Work on game physics. 
 
 Roshan == Sept 14 
 
 ToDO:
 - code back and forth movmements.
-
-
-
 
