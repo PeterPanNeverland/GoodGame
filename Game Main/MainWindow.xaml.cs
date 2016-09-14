@@ -309,6 +309,9 @@ namespace SnakeTest
                     direction = 3;
                     break;
                 default:
+                case Key.Space:
+                    direction = 5;
+                    break;
                     direction = 1;
                     break;
             }
