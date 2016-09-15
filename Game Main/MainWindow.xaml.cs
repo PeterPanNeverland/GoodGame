@@ -243,7 +243,7 @@ namespace SnakeTest
                     Canvas.SetLeft(this.Player, 10);
                     GameStatus.Player.direction = Direction.Stop;
                    // ScoreWindow ScoreWindow = new ScoreWindow();
-                   // ScoreWindow.Show();
+                    ScoreWindow.Show();
                    
                 }
                 
