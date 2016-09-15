@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using Game_Main;
 
 namespace SnakeTest
 {
@@ -22,7 +23,18 @@ namespace SnakeTest
     /// </summary>
     /// 
     public enum Direction { Stop, Up, Down, Left, Right }
+    class DonkeyKong
+    {
+        public double posX;
+        public double posY;
+        public int sizeX, sizeY;
+        public Image image;
+        public Direction direction;
+        public void Animate()
+        {
 
+        }
+    }
     class Player
     {
         public double posY;
@@ -56,18 +68,18 @@ namespace SnakeTest
         private int v3;
         private int v4;
 
-        public Barrel(int v1, int v2, int v3, int v4)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-        }
+        /* public Barrel(int v1, int v2, int v3, int v4)
+         {
+             this.v1 = v1;
+             this.v2 = v2;
+             this.v3 = v3;
+             this.v4 = v4;
+         }
 
-        public Barrel()
-        {
-        }
-
+         public Barrel()
+         {
+         }*/
+        
         public void Animate()
         {
 
@@ -78,6 +90,7 @@ namespace SnakeTest
         // state of the game
         public static Player Player;
         public static Barrel Barrel;
+        public static DonkeyKong DonkeyKong;
 
         public int ScorePoints;
         public string PlayerName;
@@ -142,6 +155,15 @@ namespace SnakeTest
             Barrel.Width = 47;
             Barrel.Height = 39;
 
+            GameStatus.DonkeyKong = new DonkeyKong();
+            GameStatus.DonkeyKong.posX = 100;
+            GameStatus.DonkeyKong.posY = 500;
+            GameStatus.DonkeyKong.sizeX = 40;
+            GameStatus.DonkeyKong.sizeY = 40;
+            Canvas.SetTop(this.DonkeyKong, 500);
+            Canvas.SetLeft(this.DonkeyKong, 100);
+            DonkeyKong.Width = 40;
+            DonkeyKong.Height = 40;
 
             this.DataContext = this;
 
@@ -208,15 +230,24 @@ namespace SnakeTest
 
                 //Collision detection
 
-                Rect rect1 = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
-                Rect rect2 = new Rect(Canvas.GetLeft(Barrel), Canvas.GetTop(Barrel), Barrel.Width, Barrel.Height);
-                if (rect1.IntersectsWith(rect2))
-                
-                {
-                
+                Rect Player1 = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
+                Rect Barrel1 = new Rect(Canvas.GetLeft(Barrel), Canvas.GetTop(Barrel), Barrel.Width, Barrel.Height);
+                Rect Biff = new Rect(Canvas.GetLeft(DonkeyKong), Canvas.GetTop(DonkeyKong), DonkeyKong.Width, DonkeyKong.Height);
+                if (Player1.IntersectsWith(Barrel1) || Player1.IntersectsWith(Biff))
 
-                    MessageBox.Show("YOU LOST");
+                {
+                    GameStatus.Player.direction = Direction.Stop;
+                    GameStatus.Player.posX = 10;
+                    GameStatus.Player.posY = 680;
+                    Canvas.SetTop(this.Player, 680);
+                    Canvas.SetLeft(this.Player, 10);
+                    
+                    ScoreWindow ScoreWindow = new ScoreWindow();
+                    ScoreWindow.Show();
+                   
                 }
+                
+               
                 if (GameStatus.Player.posY == 700)
                 {
                     direction = 5;

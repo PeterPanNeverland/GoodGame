@@ -27,3 +27,7 @@ C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\Game Main.g.resources
 C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\Game_Main.Properties.Resources.resources
 C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\Game Main.csproj.GenerateResource.Cache
 C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\Game Main_Content.g.cs
+C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\GameIntro.g.cs
+C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\GameIntro.baml
+C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\ScoreWindow.g.cs
+C:\Users\student\Documents\GoodGame\Game Main\obj\Debug\ScoreWindow.baml

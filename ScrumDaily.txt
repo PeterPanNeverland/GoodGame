@@ -44,3 +44,11 @@ TODO: Work on game physics and collision. Ennemy movement too.
 Alex==14sept
 Collision is starting to work. Ennemy movement too.
 Work on collision and location of ennemies and character. Work on game physics.
+
+
+Roshan == Sept 15
+Create new reposotory
+ToDO: 
+- Create game intro window.
+- create boundries and walls.
+- create collision detection when charachter intersects with enemy.
