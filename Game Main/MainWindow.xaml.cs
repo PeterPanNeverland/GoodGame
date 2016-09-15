@@ -236,14 +236,14 @@ namespace SnakeTest
                 if (Player1.IntersectsWith(Barrel1) || Player1.IntersectsWith(Biff))
 
                 {
-                    GameStatus.Player.direction = Direction.Stop;
+                    
                     GameStatus.Player.posX = 10;
                     GameStatus.Player.posY = 680;
                     Canvas.SetTop(this.Player, 680);
                     Canvas.SetLeft(this.Player, 10);
-                    
-                    ScoreWindow ScoreWindow = new ScoreWindow();
-                    ScoreWindow.Show();
+                    GameStatus.Player.direction = Direction.Stop;
+                   // ScoreWindow ScoreWindow = new ScoreWindow();
+                   // ScoreWindow.Show();
                    
                 }
                 
